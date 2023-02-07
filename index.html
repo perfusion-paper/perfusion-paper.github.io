@@ -128,6 +128,7 @@
   </div>
 </section>
 
+<!--teaser-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -143,76 +144,68 @@
   </div>
 </section>
 
+<!--examples-->
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="subtitle has-text-centered">Here are some more generated examples. We hope they are cool enough to convince you it's worth reading on :)</h2>
       <div id="results-carousel-face" class="carousel results-carousel">
+
         <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/puppet.JPG"
+            <img src="static/images_perfusion/slider_examples/0.png"
                    alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-round_bird">
+
+        <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/round_bird.JPG"
-                   alt="Round-bird."/>
+            <img src="static/images_perfusion/slider_examples/1.png"
+                   alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-furby">
+
+        <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/furby.JPG"
-                   alt="Furby."/>
+            <img src="static/images_perfusion/slider_examples/2.png"
+                   alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-bowl">
+
+        <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/bowl.JPG"
-                   alt="bowl."/>
+            <img src="static/images_perfusion/slider_examples/3.png"
+                   alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-child-drawing">
+
+        <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/child_drawing.JPG"
-                   alt="Child Drawing."/>
+            <img src="static/images_perfusion/slider_examples/4.png"
+                   alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-red_teapot">
+
+        <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/red_teapot.JPG"
-                   alt="Red Teapot."/>
+            <img src="static/images_perfusion/slider_examples/5.png"
+                   alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-fluffy">
+
+        <div class="item item-puppet">
           <div class="carousel-content">
-            <img src="static/images/editing/fluffy.JPG"
-                   alt="Fluffy."/>
+            <img src="static/images_perfusion/slider_examples/6.png"
+                   alt="Puppet."/>
           </div>
         </div>
-        <div class="item item-thin_bird">
-          <div class="carousel-content">
-            <img src="static/images/editing/thin_bird.JPG"
-                   alt="Thin Bird."/>
-          </div>
-        </div>
-        <div class="item item-elephant">
-          <div class="carousel-content">
-            <img src="static/images/editing/elephant.JPG"
-                   alt="Elephant."/>
-          </div>
-        </div>
-        <div class="item item-teapot">
-          <div class="carousel-content">
-            <img src="static/images/editing/colorful_teapot.JPG"
-                   alt="Teapot."/>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
 </section>
 
+<!--Abstract-->
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -244,6 +237,7 @@
   </div>
 </section>
 
+<!-- Architecture -->
 <section class="hero is-light is-small">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -259,34 +253,36 @@
           </div>
         </div>
         <p>
-          In the text-encoding stage of most text-to-image models, the first stage involves converting the prompt into a numerical representation. This is typically done by converting the words into tokens, each equivalent to an entry in the model's dictionary.
-          These entries are then converted into an "embedding" - a continuous vector representation for the specific token. These embeddings are usually learned as part of the training process. In our work, we find new embeddings that represent specific, user-provided visual concepts. These embeddings are then linked to new pseudo-words, which can be incorporated into new sentences like any other word.
-          In a sense, we are performing inversion into the text-embedding space of the frozen model. We're calling the process 'Textual Inversion'.
+          Architecture outline (A): A prompt is transformed into a sequence of encodings. Each encoding is fed to a set of cross-attention modules (purple
+blocks) of a diffusion U-Net denoiser. Zoomed-in purple module shows how the Key and Value pathways are conditioned on the text encoding. The Key drives
+the attention map, which then modulates the Value pathway. Gated Rank-1 Edit (B): Top: The K pathway is locked so any encoding of 𝑒_Hugsy that reaches
+𝑊𝑘 is mapped to the key of the supre-category 𝐾_teddy. Bottom: Any encoding of 𝑒_Hugsy that reaches 𝑊𝑣 , is mapped to 𝑉_Hugsy, which is learned
         </p>
     </div>
   </div>
 </section>
 
+<!-- Baseline compare -->
 <section class="section">
   <div class="container is-max-desktop">
 
       <div class="section-title">
-        <h2 class="title is-3">Learning to represent styles</h2>
+        <h2 class="title is-3">Comparison To Current Methods</h2>
       </div>
 
     <div class="columns is-centered">
 
-      <!-- Cross domain. -->
       <div class="column">
         <div class="content">
 
           <p>
-            Our method can be used to represent a wide array of concepts - including visual artistic styles. In a sense, we can learn a pseudo-word that represents a specific artist or a new artistic movement, and mimic it in future creations. <br>
+            For each concept, we show exemplars from our training set, along with generated images,
+their conditioning texts and comparisons to Custom-Diffusion (CD) and Dreambooth (DB) baselines. Perfusion can enable more animate results, with better
+prompt-matching and less susceptibility to background traits from the original image.  <br>
           </p>
             <div class="publication-img">
-              <img id="style_transfer" src="static/images/style/style.JPG"/>
+              <img id="style_transfer" src="static/images_perfusion/baseline_comparison_single_concept.png"/>
             </div>
-          <p>Image credits: <a href="https://www.deviantart.com/qinni">@QinniArt</a> (top), <a href="https://commons.wikimedia.org/wiki/User:Deevad">@David Revoy</a> (bottom). Image reproduction authorized for non-commercial use only.</p>
         </div>
       </div>
       <!--/ Cross domain. -->
@@ -297,41 +293,8 @@
   </div>
 </section>
 
-
+<!-- Compositions -->
 <section class="hero is-light is-small">
-  <div class="container is-max-desktop">
-
-      <div class="section-title">
-        <br>
-        <h2 class="title is-3">Reducing Biases</h2>
-      </div>
-
-    <div class="columns is-centered">
-
-      <!-- Cross domain. -->
-      <div class="column">
-        <div class="content">
-
-          <p>
-            Text-to-image models suffer from biases inherited from the training data.
-            Rather than learning a new concept, we can find new embeddings for 'biased' concepts. These are found using small datasets, so we can easily curate the data and ensure a fairer representation.
-            For example, here we replace the model's notion of 'Doctor', with a new, more inclusive word.  <br>
-          </p>
-            <div class="publication-img">
-              <img id="bias" src="static/images/bias/bias.JPG"/>
-              <br><br>
-            </div>
-        </div>
-      </div>
-      <!--/ Cross domain. -->
-
-      <!-- New domain editing. -->
-    </div>
-    <!--/ New domain editing. -->
-  </div>
-</section>
-
-<section class="section">
   <div class="container is-max-desktop">
 
       <div class="section-title">
@@ -345,12 +308,11 @@
         <div class="content">
 
           <p>
-            We can combine the new words in order to create scenes that draw on both concepts. Unfortunately, this doesn't yet work for relational prompts, so we can't show you our cat on a fishing trip with our clock. <br>
+            We show pairs of concepts interacting, and compare to CD. Except for the teddy* prompt, all prompts are from CD paper and use the images provided by the paper. <br>
           </p>
             <div class="publication-img">
-              <img id="compositions" src="static/images/compositions/compositions.JPG"/>
+              <img id="compositions" src="static/images_perfusion/compositions.png"/>
             </div>
-          <p>Image credits: <a href="https://www.deviantart.com/qinni">@QinniArt</a> (left), <a href="https://www.pinkstripeysocks.com/p/about.htm">@Leslie Manlapig</a> (right). Reproductions authorized for non-commercial & non-print use.</p>
         </div>
       </div>
       <!--/ Cross domain. -->
@@ -361,12 +323,13 @@
   </div>
 </section>
 
-<section class="hero is-light is-small">
+<!-- One shot -->
+<section class="section">
   <div class="container is-max-desktop">
 
       <div class="section-title">
         <br>
-        <h2 class="title is-3">Downstream Models</h2>
+        <h2 class="title is-3">1-shot Personalization</h2>
       </div>
 
     <div class="columns is-centered">
@@ -376,10 +339,44 @@
         <div class="content">
 
           <p>
-            Our pseudo-words work with downstream models. For example, if you're tired of your old photographs, you can spice them up by inserting some new friends using <a href="https://omriavrahami.com/blended-latent-diffusion-page/">Blended Latent Diffusion</a>: <br>
+            When training with a single image, our
+method can generate images with both high visual-fidelity and textual-
+alignment.   <br>
           </p>
             <div class="publication-img">
-              <img id="blended" src="static/images/blended/blended_diffusion.JPG"/>
+              <img id="bias" src="static/images_perfusion/one_shot.png"/>
+              <br><br>
+            </div>
+        </div>
+      </div>
+      <!--/ Cross domain. -->
+
+      <!-- New domain editing. -->
+    </div>
+    <!--/ New domain editing. -->
+  </div>
+</section>
+
+<!-- Downstream models -->
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <br>
+        <h2 class="title is-3">Zero-shot Transfer To Fine-tuned Models</h2>
+      </div>
+
+    <div class="columns is-centered">
+
+      <!-- Cross domain. -->
+      <div class="column">
+        <div class="content">
+
+          <p>
+            A Perfusion concept  trained using a vanilla diffusion-model can generalize to fine-tuned variants. <br>
+          </p>
+            <div class="publication-img">
+              <img id="blended" src="static/images_perfusion/zero_shot_transfer.png"/>
                <br>
                <br>
             </div>
@@ -393,21 +390,23 @@
   </div>
 </section>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <p>If you find our work useful, please cite our paper:</p>
-    <pre><code>@misc{gal2022textual,
-      doi = {10.48550/ARXIV.2208.01618},
-      url = {https://arxiv.org/abs/2208.01618},
-      author = {Gal, Rinon and Alaluf, Yuval and Atzmon, Yuval and Patashnik, Or and Bermano, Amit H. and Chechik, Gal and Cohen-Or, Daniel},
-      title = {An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion},
-      publisher = {arXiv},
-      year = {2022},
-      primaryClass={cs.CV}
-}</code></pre>
-  </div>
-</section>
+<!--&lt;!&ndash; Cite &ndash;&gt;-->
+<!--<section class="section" id="BibTeX">-->
+<!--  <div class="container is-max-desktop content">-->
+<!--    <h2 class="title">BibTeX</h2>-->
+<!--    <p>If you find our work useful, please cite our paper:</p>-->
+<!--    <pre><code>@misc{gal2022textual,-->
+<!--      doi = {10.48550/ARXIV.2208.01618},-->
+<!--      url = {https://arxiv.org/abs/2208.01618},-->
+<!--      author = {Gal, Rinon and Alaluf, Yuval and Atzmon, Yuval and Patashnik, Or and Bermano, Amit H. and Chechik, Gal and Cohen-Or, Daniel},-->
+<!--      title = {An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion},-->
+<!--      publisher = {arXiv},-->
+<!--      year = {2022},-->
+<!--      primaryClass={cs.CV}-->
+<!--}</code></pre>-->
+<!--  </div>-->
+<!--</section>-->
+
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
