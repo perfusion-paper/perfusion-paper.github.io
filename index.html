@@ -135,10 +135,9 @@
       <img src="static/images_perfusion/Teaser.png"
                    alt="Teaser."/>
       <h2 class="subtitle has-text-centered">
-        (left) Perfusion enables image generation for personalized concepts with large changes in their appearance, pose, and context, using only 100KB of
-        data and without compromising identity. (right) Perfusion can combine learned concepts at inference time, creating scenes which portray multiple concepts
+        Our method <b>Perfusion</b> enables image generation for personalized concepts with large changes in their appearance, pose, and context, using only 100KB of
+        data and without compromising identity. We can combine learned concepts at inference time, creating scenes which portray multiple concepts
         side-by-side, or even create interactions between them.
-<!--        <br><br> Our work builds on the publicly available <a href="https://github.com/CompVis/latent-diffusion">Latent Diffusion Models</a>-->
       </h2>
     </div>
   </div>
@@ -148,7 +147,8 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="subtitle has-text-centered">Uncurated samples of image variations with text guided prompts.</h2>
+      <h2 class="subtitle has-text-centered">Perfusion produces appealing images effortlessly, eliminating the need to sift through multiple seeds.
+        To demonstrate this, we present a collection of uncurated image variations that are guided by text prompts.</h2>
       <div id="results-carousel-face" class="carousel results-carousel">
 
         <div class="item item-puppet">
@@ -276,9 +276,9 @@ the attention map, which then modulates the Value pathway. Gated Rank-1 Edit (B)
         <div class="content">
 
           <p>
+            Perfusion can enable more animate results, with better prompt-matching and less susceptibility to background traits from the original image.
             For each concept, we show exemplars from our training set, along with generated images,
-their conditioning texts and comparisons to Custom-Diffusion (CD) and Dreambooth (DB) baselines. Perfusion can enable more animate results, with better
-prompt-matching and less susceptibility to background traits from the original image.  <br>
+            their conditioning texts and comparisons to Custom-Diffusion (CD) and Dreambooth (DB) baselines.  <br>
           </p>
             <div class="publication-img">
               <img id="style_transfer" src="static/images_perfusion/baseline_comparison_single_concept.png"/>
@@ -379,6 +379,40 @@ alignment.   <br>
               <img id="blended" src="static/images_perfusion/zero_shot_transfer.png"/>
                <br>
                <br>
+            </div>
+        </div>
+      </div>
+      <!--/ Cross domain. -->
+
+      <!-- New domain editing. -->
+    </div>
+    <!--/ New domain editing. -->
+  </div>
+</section>
+
+<!-- Pareto -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <br>
+        <h2 class="title is-3">Balancing visual-fidelity and textual-alignment</h2>
+      </div>
+
+    <div class="columns is-centered">
+
+      <!-- Cross domain. -->
+      <div class="column">
+        <div class="content">
+
+          <p>
+            Our method enables to control the trade-off between visual-fidelity and the textual-alignment at inference time.
+            A high bias value reduces the concept’s effect, while a low bias value makes it more influential.
+            With just a single 100KB trained  model and run-time parameter choices, Perfusion (blue and cyan) spans the Pareto front.  <br>
+          </p>
+            <div class="publication-img">
+              <img id="pareto" src="static/images_perfusion/pareto.png"/>
+              <br><br>
             </div>
         </div>
       </div>
