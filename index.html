@@ -135,10 +135,35 @@
       <img src="static/images_perfusion/Teaser.png"
                    alt="Teaser."/>
       <h2 class="subtitle has-text-centered">
-        Our method <b>Perfusion</b> enables image generation for personalized concepts with large changes in their appearance, pose, and context, using only 100KB of
-        data and without compromising identity. We can combine learned concepts at inference time, creating scenes which portray multiple concepts
+        Our method <b>Perfusion</b> enables image generation for personalized concepts with large changes in their appearance, pose, and context,
+        using a compact model of only 100KB per concept, without compromising identity.
+        We can combine learned concepts at inference time, creating scenes which portray multiple concepts
         side-by-side, or even create interactions between them.
       </h2>
+    </div>
+  </div>
+</section>
+
+<!--Perfusion-->
+<section class="section">
+  <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <h2 class="title is-2">Perfusion</h2>
+      </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <p style="font-size: 20px">
+            We present Perfusion, a method that allows for the generation of personal concepts in Text-to-Image models using natural language resulting in
+            visually appealing images that match the user's vision.
+            Our dynamic updates keep the model light (~100KB model size per concept) and fast, allowing for efficient real-time balancing of
+            visual-fidelity and textual-alignment. Our approach enables compositing of multiple concepts, keeping the model identity while enabling changes in pose and context.
+            This results in a unique, highly personalized T2I experience for the user.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -278,7 +303,7 @@ the attention map, which then modulates the Value pathway. Gated Rank-1 Edit (B)
           <p>
             Perfusion can enable more animate results, with better prompt-matching and less susceptibility to background traits from the original image.
             For each concept, we show exemplars from our training set, along with generated images,
-            their conditioning texts and comparisons to Custom-Diffusion (CD) and Dreambooth (DB) baselines.  <br>
+            their conditioning texts and comparisons to Custom-Diffusion and Dreambooth baselines.  <br>
           </p>
             <div class="publication-img">
               <img id="style_transfer" src="static/images_perfusion/baseline_comparison_single_concept.png"/>
@@ -308,7 +333,8 @@ the attention map, which then modulates the Value pathway. Gated Rank-1 Edit (B)
         <div class="content">
 
           <p>
-            We show pairs of concepts interacting, and compare to CD. Except for the teddy* prompt, all prompts are from CD paper and use the images provided by the paper. <br>
+            Our method enables us to combine multiple learned concept into a single generated image, using a textual prompt.  The concepts are individually learned and merged only during the runtime process to produce the final image. <br>
+            This results in a visually appealing display of concept interactions which we compare to Custom-Diffusion. Except for the teddy* prompt, all prompts are from Custom-Diffusion paper and use the images provided by the paper. <br>
           </p>
             <div class="publication-img">
               <img id="compositions" src="static/images_perfusion/compositions.png"/>
@@ -323,8 +349,42 @@ the attention map, which then modulates the Value pathway. Gated Rank-1 Edit (B)
   </div>
 </section>
 
-<!-- One shot -->
+<!-- Pareto -->
 <section class="section">
+  <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <br>
+        <h2 class="title is-3">Efficiently Control the Visual-Textual Alignment</h2>
+      </div>
+
+    <div class="columns is-centered">
+
+      <!-- Cross domain. -->
+      <div class="column">
+        <div class="content">
+
+          <p>
+            Our method enables to control the trade-off between visual-fidelity and the textual-alignment at inference time.
+            A high bias value reduces the concept’s effect, while a low bias value makes it more influential.
+            With just a single 100KB trained  model and run-time parameter choices, Perfusion (blue and cyan) spans the Pareto front.  <br>
+          </p>
+            <div class="publication-img">
+              <img id="pareto" src="static/images_perfusion/pareto.png"/>
+              <br><br>
+            </div>
+        </div>
+      </div>
+      <!--/ Cross domain. -->
+
+      <!-- New domain editing. -->
+    </div>
+    <!--/ New domain editing. -->
+  </div>
+</section>
+
+<!-- One shot -->
+<section class="hero is-light is-small">
   <div class="container is-max-desktop">
 
       <div class="section-title">
@@ -358,7 +418,7 @@ alignment.   <br>
 </section>
 
 <!-- Downstream models -->
-<section class="hero is-light is-small">
+<section class="section">
   <div class="container is-max-desktop">
 
       <div class="section-title">
@@ -379,40 +439,6 @@ alignment.   <br>
               <img id="blended" src="static/images_perfusion/zero_shot_transfer.png"/>
                <br>
                <br>
-            </div>
-        </div>
-      </div>
-      <!--/ Cross domain. -->
-
-      <!-- New domain editing. -->
-    </div>
-    <!--/ New domain editing. -->
-  </div>
-</section>
-
-<!-- Pareto -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-      <div class="section-title">
-        <br>
-        <h2 class="title is-3">Balancing visual-fidelity and textual-alignment</h2>
-      </div>
-
-    <div class="columns is-centered">
-
-      <!-- Cross domain. -->
-      <div class="column">
-        <div class="content">
-
-          <p>
-            Our method enables to control the trade-off between visual-fidelity and the textual-alignment at inference time.
-            A high bias value reduces the concept’s effect, while a low bias value makes it more influential.
-            With just a single 100KB trained  model and run-time parameter choices, Perfusion (blue and cyan) spans the Pareto front.  <br>
-          </p>
-            <div class="publication-img">
-              <img id="pareto" src="static/images_perfusion/pareto.png"/>
-              <br><br>
             </div>
         </div>
       </div>
