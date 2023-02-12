@@ -132,10 +132,13 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <h2 class="subtitle has-text-centered" style="font-size: 1.45rem; color: #1c1c1c">
+        We introduce <b>Perfusion</b>, a method to "teach" a text-to-image model about user-provided concepts, allowing it to generate new images of the concepts guided by text.
+      </h2>
       <img src="static/images_perfusion/Teaser.png"
                    alt="Teaser."/>
       <h2 class="subtitle has-text-centered">
-        Our method <b>Perfusion</b> enables image generation for personalized concepts with large changes in their appearance, pose, and context,
+        Perfusion enables image generation for personalized concepts with large changes in their appearance, pose, and context,
         using a compact model of only 100KB per concept, without compromising identity.
         We can combine learned concepts at inference time, creating scenes which portray multiple concepts
         side-by-side, or even create interactions between them.
@@ -144,29 +147,27 @@
   </div>
 </section>
 
-<!--Perfusion-->
-<section class="section">
-  <div class="container is-max-desktop">
+<!--&lt;!&ndash;Perfusion&ndash;&gt;-->
+<!--<section class="section">-->
+<!--  <div class="container is-max-desktop">-->
 
-      <div class="section-title">
-        <h2 class="title is-2">Perfusion</h2>
-      </div>
+<!--      <div class="section-title">-->
+<!--        <h2 class="title is-2">Perfusion</h2>-->
+<!--      </div>-->
 
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content">
-          <p style="font-size: 20px">
-            We present Perfusion, a method that allows for the generation of personal concepts in Text-to-Image models using natural language resulting in
-            visually appealing images that match the user's vision.
-            Our dynamic updates keep the model light (~100KB model size per concept) and fast, allowing for efficient real-time balancing of
-            visual-fidelity and textual-alignment. Our approach enables compositing of multiple concepts, keeping the model identity while enabling changes in pose and context.
-            This results in a unique, highly personalized T2I experience for the user.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column">-->
+<!--        <div class="content">-->
+<!--          <p style="font-size: 20px">-->
+<!--            We introduce Perfusion, a method to "teach" a text-to-image model about user-provided concepts, allowing it to generate new images of the concepts guided by text.-->
+<!--Perfusion enables image generation for personalized concepts with large changes in their appearance, pose, and context, using a compact model of only 100KB per concept, without compromising identity.-->
+<!--            We can combine learned concepts at inference time, creating scenes which portray multiple concepts side-by-side, or even create interactions between them.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
 
 <!--examples-->
 <section class="hero is-light is-small">
@@ -278,10 +279,11 @@
           </div>
         </div>
         <p>
-          Architecture outline (A): A prompt is transformed into a sequence of encodings. Each encoding is fed to a set of cross-attention modules (purple
-blocks) of a diffusion U-Net denoiser. Zoomed-in purple module shows how the Key and Value pathways are conditioned on the text encoding. The Key drives
-the attention map, which then modulates the Value pathway. Gated Rank-1 Edit (B): Top: The K pathway is locked so any encoding of 𝑒_Hugsy that reaches
-𝑊𝑘 is mapped to the key of the supre-category 𝐾_teddy. Bottom: Any encoding of 𝑒_Hugsy that reaches 𝑊𝑣 , is mapped to 𝑉_Hugsy, which is learned
+          <b>Architecture outline (A)</b>: A prompt is transformed into a sequence of encodings. Each encoding is fed to a set of cross-attention modules (purple
+          blocks) of a diffusion U-Net denoiser. Zoomed-in purple module shows how the Key and Value pathways are conditioned on the text encoding. The Key drives
+          the attention map, which then modulates the Value pathway. <b>Gated Rank-1 Edit (B)</b>: Top: The K pathway is locked so any encoding of 𝑒_Hugsy that reaches
+          𝑊𝑘 is mapped to the key of the supre-category 𝐾_teddy. Bottom: Any encoding of 𝑒_Hugsy that reaches 𝑊𝑣 , is mapped to 𝑉_Hugsy, which is learned.
+          The gated aspect of this update allows to selectively apply it to only the necessary encodings and provides means for regulating the strength of learned concept, as expressed in the output images.
         </p>
     </div>
   </div>
@@ -417,8 +419,43 @@ alignment.   <br>
   </div>
 </section>
 
-<!-- Downstream models -->
+<!-- key-locking -->
 <section class="section">
+  <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <br>
+        <h2 class="title is-3">Comparing Lock Types</h2>
+      </div>
+
+    <div class="columns is-centered">
+
+      <!-- Cross domain. -->
+      <div class="column">
+        <div class="content">
+
+          <p>
+            We present 3 variations of key-locking: <br>
+            <b>Global key-locking</b> allows for more visual variability and can accurately portray the nuances of an object or activity, like
+when depicting the cat in a human-like posture reading a book or wearing a chef outfit. <b>Local key-locking</b> also has successes, but they are not as effective as
+global key-locking. Finally, <b>Trained-K</b> has better compatibility with the training images, but it sacrifices its alignment with the text.  <br>
+          </p>
+            <div class="publication-img">
+              <img id="key_locking" src="static/images_perfusion/key_locking.png"/>
+              <br><br>
+            </div>
+        </div>
+      </div>
+      <!--/ Cross domain. -->
+
+      <!-- New domain editing. -->
+    </div>
+    <!--/ New domain editing. -->
+  </div>
+</section>
+
+<!-- Downstream models -->
+<section class="hero is-light is-small">
   <div class="container is-max-desktop">
 
       <div class="section-title">
