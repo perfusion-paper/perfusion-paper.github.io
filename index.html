@@ -132,17 +132,21 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <h2 class="subtitle has-text-centered" style="font-size: 1.45rem; color: #1c1c1c">
-        We introduce <b>Perfusion</b>, a method to "teach" a text-to-image model about user-provided concepts, allowing it to generate new images of the concepts guided by text.
+      <h2 class="subtitle has-text-centered" style="font-size: 1.35rem; color: #1c1c1c">
+        We present <b>Perfusion</b>, a new text-to-image personalization method.
+        With only a 100KB model size, Perfusion enables to creatively portray personalized objects, allowing significant changes in their appearance,
+        while maintaining their identity, using a novel mechanism we call “Key-Locking”.
+        It can also combine individually learned concepts into a single generated image.
+        Finally, Perfusion enables to control the trade-off between visual and textual alignment at inference time, covering the entire Pareto front, with just a single trained model.
       </h2>
       <img src="static/images_perfusion/Teaser.png"
                    alt="Teaser."/>
-      <h2 class="subtitle has-text-centered">
-        Perfusion enables image generation for personalized concepts with large changes in their appearance, pose, and context,
-        using a compact model of only 100KB per concept, without compromising identity.
-        We can combine learned concepts at inference time, creating scenes which portray multiple concepts
-        side-by-side, or even create interactions between them.
-      </h2>
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        Perfusion enables image generation for personalized concepts with large changes in their appearance, pose, and context,-->
+<!--        using a compact model of only 100KB per concept, without compromising identity.-->
+<!--        We can combine learned concepts at inference time, creating scenes which portray multiple concepts-->
+<!--        side-by-side, or even create interactions between them.-->
+<!--      </h2>-->
     </div>
   </div>
 </section>
